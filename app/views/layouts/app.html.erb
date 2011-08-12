@@ -1,0 +1,23 @@
+
+<body>
+    <div id="container">
+	<div id="contentcolumn">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= tabs %>
+      <%= subtabs %>
+      <% if user_signed_in? -%>
+        <div id="user_login_box" style="float:right">
+          <%= current_user.email %><b>(<%= current_user.role.name %>)</b> |
+          <%= link_to 'My Account', edit_user_registration_path %> |
+          <%= link_to 'Sign out', destroy_user_session_path %>
+        </div>
+      <% end -%>
+      <%= yield %>
+
+    </div>
+   </div>
+  </body>
+</html>

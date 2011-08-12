@@ -1,0 +1,220 @@
+<%= form_for(@employee_master) do |f| %>
+  <% if @employee_master.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee_master.errors.count, "error") %> prohibited this employee_master from being saved:</h2>
+
+      <ul>
+      <% @employee_master.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<fieldset>
+<table>
+ <legend><b>Personal Information:</b></legend>
+<tr>
+    <td><%= f.label :'Employee_Number' %><br />
+    <%= f.text_field :emp_id, :placeholder => "enter the emp code" %></td>
+
+    <td><%= f.label :designation_id %><br />
+    <%= f.collection_select :designation_id, Designation.find(:all),:id, :name %></td>
+</tr>
+
+<tr>
+   <td><%= f.label :Department_Name %><br />
+    <%= f.collection_select :department_id, Department.find(:all),:id, :name %></td>
+</tr>
+
+<tr>
+    <td><%= f.label :Emp_Name %><br />
+    <%= f.text_field :emp_name, :placeholder => "employee's full name" %></td>
+    <td><%= f.label :Emp_Nick_Name %><br />
+    <%= f.text_field :nick_name, :placeholder => "employee's nick name" %></td>
+
+</tr>
+<tr>
+    <td><%= f.label :'Reporting To' %><br />
+        <%= f.select :parent_id, nested_set_options(EmployeeMaster, @employee_master) {|i, level| "#{'-' * level} #{i.emp_name}" } %></td>
+</tr>
+
+
+
+<tr>
+    <td><%= f.label :'date_of_Birth' %><br />
+    <%= f.date_select :d_o_b, :start_year => 1975 %></td>
+
+    <td><%= f.label :'Gender' %><br />
+    <select name="employee_master[gender]">
+       <option>Male</option>
+       <option>Female</option>
+    </select>
+</td>
+
+     <td><%= f.label :'Marital Status' %><br />
+     <select name="employee_master[martial_status]">
+       <option>Married</option>
+       <option>Un-Married</option>
+       <option>Divorced</option>
+     </select></td>
+</tr>
+<tr>
+    <td><%= f.label :'Pan Card Number' %><br />
+    <%= f.text_field :pan_number, :placeholder => "employees pan-card number" %></td>
+</tr>
+    <td><%= f.label :'Date_Of_Joining' %><br />
+    <%= f.date_select :d_o_j %></td>
+</tr>
+</legend>
+</table>
+</fieldset>
+
+
+<fieldset>
+<table>
+ <legend><b> Work Experience Details :</b></legend>
+  <%= f.fields_for :resumes do |resume| %>
+
+  <tr>
+    <td><%= resume.label :'Skill', "Skill" %><br />
+    <%= resume.text_field :skill, :rows => 3 %></td>
+
+    <td><%= resume.label :'Work_Experience' %><br />
+    <%= resume.text_field :work_experience, :rows => 3 %></td>
+  </tr>
+  <tr>
+    <td><%= resume.label :'Last Company Name' %><br />
+    <%= resume.text_field :last_company_working_name, :rows => 3 %></td>
+  </tr>
+  <tr>
+    <td><%= resume.label :'Worked From date' %><br />
+    <%= resume.date_select :working_from, :rows => 3 %></td>
+
+    <td><%= resume.label :'Worked Till date' %><br />
+    <%= resume.date_select :working_till, :rows => 3 %></td>
+
+    <%# f.label :_destroy, "Remove Salary" %>
+  </tr>
+</table>
+</legend>
+</fieldset>
+<% end %>
+
+<fieldset>
+<table>
+ <legend><b> Education Details :</b></legend>
+
+  <%= f.fields_for :educations do |edu| %>
+
+  <tr>
+    <td><%= edu.label :'Education', "Education" %><br />
+    <select name="education[emp_education]">
+       <option>SSC</option>
+       <option>HSC</option>
+       <option>B.tech/B.Sc.IT./BSc.Computer Science/B.Sc.</option>
+       <option>M.tech/M.Sc.IT./M.Sc.Computer Science/M.Sc.</option>
+       <option>Phd</option>
+    </select>
+    </td>
+
+    <td><%= edu.label :'Passing Status' %><br />
+     <select name="education[marks_class]">
+       <option>First Class</option>
+       <option>Second-Class</option>
+       <option>Pass-Class</option>
+       <option>In-Progress</option>
+       <option>Fail</option>
+     </select></td>
+
+    <td><%= edu.label :'Year Of Passing' %><br />
+        <%= edu.date_select :year %></td>
+
+  </tr>
+</div>
+  <% end %>
+
+</table>
+</fieldset>
+
+<fieldset>
+<table>
+ <legend><b> contactcation Details :</b></legend>
+
+  <%= f.fields_for :emp_contacts do |contact| %>
+
+  <tr>
+  <td><%= contact.label :'Address 1', "address1" %><br />
+      <%= contact.text_field :street_1, :rows => 3 %></td>
+
+  <td><%= contact.label :'Address 2', "address2" %><br />
+      <%= contact.text_field :street_2, :rows => 3 %></td>
+
+  <td><%= contact.label :'City / Town' %><br />
+      <%= contact.text_field :city, :rows => 3 %></td>
+  </tr>
+  <tr>
+  <td><%= contact.label :'State / Provinence' %><br />
+      <%= contact.text_field :state, :rows => 3 %></td>
+
+  <td><%= contact.label :'Zip Code' %><br />
+      <%= contact.text_field :zip_code, :rows => 3 %></td>
+
+  <td><%= contact.label :'Home Telephone Number' %><br />
+      <%= contact.text_field :home_telephone, :rows => 3 %></td>
+  </tr>
+  <tr>
+  <td><%= contact.label :'Mobile Number' %><br />
+      <%= contact.text_field :mobile, :rows => 3 %></td>
+
+  <td><%= contact.label :'Work Telephone Number' %><br />
+      <%= contact.text_field :work_telephone, :rows => 3 %></td>
+
+  <td><%= contact.label :'Work Email' %><br />
+      <%= contact.text_field :work_email, :rows => 3 %></td>
+  </tr>
+  <tr>
+  <td><%= contact.label :'Other Email' %><br />
+      <%= contact.text_field :other_email, :rows => 3 %></td>
+
+    <%# f.label :_destroy, "Remove Salary" %>
+  </tr>
+</div>
+  <% end %>
+
+</table>
+</fieldset>
+
+<fieldset>
+<table>
+ <legend><b> Immigration Details :</b></legend>
+
+  <%= f.fields_for :emp_immigrations do |contact| %>
+
+  <tr>
+  <td><%= contact.label :'Passport Number' %><br />
+      <%= contact.text_field :passport_no, :rows => 3 %></td>
+  </tr>
+<tr>
+  <td><%= contact.label :'Passport Issue Date' %><br />
+      <%= contact.date_select :issued_date, :rows => 3 %></td>
+</tr><tr>
+  <td><%= contact.label :'Passport Expires On' %><br />
+      <%= contact.date_select :expiry_date, :rows => 3 %></td>
+</tr>
+<tr>
+  <td><%= contact.label :'Citizenship' %><br />
+      <%= contact.text_field :citizenship, :rows => 3 %></td>
+
+  </tr>
+</div>
+  <% end %>
+
+</table>
+</fieldset>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

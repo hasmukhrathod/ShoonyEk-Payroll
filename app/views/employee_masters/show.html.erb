@@ -1,0 +1,163 @@
+<h3>
+  <%= link_to 'PaySlip', :controller=>'employee_masters',:action=>'payslip', :id =>@employee_master, :method => :get %></h3> 
+
+<h3><%= @employee_master.emp_name %>'s Detail </h3>
+
+<fieldset>
+ <legend> Personal detail </legend>
+
+<table>
+<tr>
+  <td><b>Emp Code:</b></td>
+  <td><%= @employee_master.emp_id %></td>
+</tr>
+
+<tr>
+  <td><b>Emp first name:</b></td>
+  <td><%= @employee_master.emp_name %></td>
+</tr>
+
+<tr>
+  <td><b>Designation:</b></td>
+  <td><%= @employee_master.designation.name %></td>
+</tr>
+
+<tr>
+  <td><b>Employee Branch:</b></td>
+  <td><%= @employee_master.department.name %></td>
+</tr>
+
+<tr>
+  <td><b>Date_Of_Birth:</b></td>
+  <td><%= @employee_master.d_o_b %></td>
+</tr>
+
+<tr>
+  <td><b>Date_of_Joining:</b></td>
+  <td><%= @employee_master.d_o_j %></td>
+</tr>
+</table>
+</fieldset>
+
+
+<fieldset>
+<legend> Working Details </legend>
+<table>
+<% for resume in @employee_master.resumes %>
+
+  <tr>
+    <td><b>Skill </td>
+    <td><b>Work Experience </td>
+    <td><b>Last Company Name </td>
+
+</tr>
+<tr>
+      <td><%= resume.skill %></td>
+      <td><%= resume.work_experience %></td>
+      <td><%= resume.last_company_working_name %></td>
+<% end %>
+</table>
+<br />
+</fieldset>
+
+
+<fieldset>
+<legend>Emp Contact Details  </legend>
+<table >
+<% for contact in @employee_master.emp_contacts %>
+
+<tr>
+  <td><b>Street 1 </td>
+  <td><%= contact.street_1 %></td>
+</tr>
+<tr>
+  <td><b>Street 2 </td>
+  <td><%= contact.street_2 %></td>
+</tr>
+<tr>
+  <td><b>City </td>
+  <td><%= contact.city %></td>      
+</tr>
+<tr>
+  <td><b>State </td>
+  <td><%= contact.state %></td>
+</tr>
+<tr>
+   <td><b>Zip Code </td>
+   <td><%= contact.zip_code %></td>   
+</tr>
+<tr>
+  <td><b>Home Telephone </td>
+  <td><%= contact.home_telephone %></td>  
+</tr>
+<tr>
+  <td><b>Mobile Number </td>
+  <td><%= contact.mobile %></td>
+</tr>
+<tr>
+  <td><b>Work Telephone </td>
+  <td><%= contact.work_telephone %></td>
+</tr>
+<tr>
+  <td><b>Work Email</td>
+  <td><%= contact.work_email %></td>
+</tr>
+<tr>
+  <td><b>Other Email </td>
+  <td><%= contact.other_email %></td>
+</tr>
+
+<% end %>
+</table>
+<br />
+</fieldset>
+
+
+<fieldset>
+<legend> Qualification Details </legend>
+<table>
+<% for resume in @employee_master.educations %>
+
+  <tr>
+    <td><b>Education </td>
+    <td><b>Class </td>
+    <td><b>Last Company Name </td>
+
+</tr>
+<tr>
+      <td><%= resume.emp_education %></td>
+      <td><%= resume.marks_class %></td>
+      <td><%= resume.year %></td>
+<% end %>
+</table>
+<br />
+</fieldset>
+
+<fieldset>
+<legend> Passport Details </legend>
+<table>
+<% for resume in @employee_master.emp_immigrations %>
+
+  <tr>
+    <td><b>Passport Number </td>
+    <td><b>Passport Issued Date </td>
+    <td><b>Passport Expires On </td>
+    <td><b>Citizenship </td>
+
+</tr>
+<tr>
+      <td><%= resume.passport_no %></td>
+      <td><%= resume.issued_date %></td>
+      <td><%= resume.expiry_date %></td>
+      <td><%= resume.citizenship %></td>
+<% end %>
+</table>
+<br />
+</fieldset>
+
+
+
+<b style = font-size:15px>
+<%= link_to 'Edit', edit_employee_master_path(@employee_master) %> |
+<%= link_to 'List All Employees', employee_masters_path %>
+</b>

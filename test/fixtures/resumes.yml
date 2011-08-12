@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  education_id: 1
+  skill: MyText
+  work_experience: MyText
+  contact_number: MyString
+  last_company_working_name: MyString
+
+two:
+  education_id: 1
+  skill: MyText
+  work_experience: MyText
+  contact_number: MyString
+  last_company_working_name: MyString

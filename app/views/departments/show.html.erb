@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= @department.name %> has <%= @department.employee_masters.count %> employees .</p>
+
+<p>
+  <b>Dept Number:</b>
+  <%= @department.dept_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @department.name %>
+</p>
+
+<p>
+  <b>Manager:</b>
+  <%= @department.manager %>
+</p>
+
+<p>
+  <b>Detail:</b>
+  <%= @department.detail %>
+</p>
+
+<p>
+Employees under the department <U><B>"<%= @department.name %>"</B></U> 
+
+  <% @department.employee_masters.each do |p| %>
+     <ol><ul><li><%=link_to p.emp_name, p %>  Working as <%= link_to p.designation.name, p.designation %></li></ul></ol>
+  <% end %>
+</p>
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Back to Department', departments_path %>

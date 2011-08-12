@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p style = text-align:right;font-size:20px><b><%= link_to "Approve" %>&nbsp; /&nbsp; <%= link_to "Reject" %> </b></p>
+<h1> Leave Application  </h1>
+<table id="hor-minimalist-a" summary="Employee Pay Sheet" border=10px>
+
+<tr>
+  <td><b>Name Of the Employee:</b><br />
+  <%= @leave_management.employee_master.emp_name %></td>
+  <td><b>Contact Number:</b><br />
+  <%= @leave_management.alternate_contact_number %></td>
+</tr>
+
+<tr>
+  <td><b>Employee Code:</b>
+  <%= @leave_management.employee_master.emp_id %></td>
+  <td><b>Designation:</b>
+  <%= @leave_management.employee_master.designation.name %></td>
+</tr>
+<tr>
+  <td><b>Department:</b><br />
+  <%= @leave_management.employee_master.department.name %></td>
+  <td><b>Leave Type:</b>
+  <%= @leave_management.leave_type %></td>
+</tr>
+
+
+</table>
+
+Please approve absence from work for <b>10</b> days,<br/>
+from 
+<b><u><%= @leave_management.leave_taken_on_date %></b></u> to <b><u><%= @leave_management.leave_till_date %></b></u>,<br/><br/>
+inclusive. Reasons for absence 
+'<%= @leave_management.description %>'<br /><br />
+I may be contacted at Telephone No :<b><%= @leave_management.alternate_contact_number %></b> 
+<br/><br />
+
+<p>
+<%= link_to 'Edit', edit_leave_management_path(@leave_management) %> |
+<%= link_to 'Back to leaves', leave_managements_path %></b>

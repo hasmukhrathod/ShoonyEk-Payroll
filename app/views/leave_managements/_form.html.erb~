@@ -1,0 +1,56 @@
+<head>
+<script>
+    if (!("autofocus" in document.createElement("input"))) {
+      document.getElementById("q").focus();
+    }
+  </script>
+</head>
+<body>
+
+<%= form_for(@leave_management) do |f| %>
+  <% if @leave_management.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave_management.errors.count, "error") %> prohibited this leave_management from being saved:</h2>
+      <ul>
+      <% @leave_management.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Select Name Of the Employee' %><br />
+    <%= f.collection_select :employee_master_id, EmployeeMaster.find(:all), :id , :emp_first_name %>  
+  </div>
+  <div class="field">
+    <%= f.label :'Type Of The Leave' %><br />
+    <select name="leave_management[leave_type]">
+      <option>Paid Leave</option>
+      <option>Public Holiday</option>
+      <option>Restricted Leave</option>
+      <option>Loss Of Pay</option>
+  </select>
+  </div><br />
+
+  <div class="field">
+    <b><%= f.label :'leave_from: ' %></b>-
+    <%= f.date_select :leave_taken_on_date %>
+    <b><%= f.label :'leave_till_date:' %></b>
+    <%= f.date_select :leave_till_date %>
+  </div>
+  <div class="field">
+    <%= f.label :'Leave description' %><br />
+    <%= f.text_area :description, :size =>"100x10", :placeholder => "Reason for the Leave ..... " %>
+  </div><br />
+
+  <div class="field">
+    <%= f.label :'Alternate Contact Number' %><br />
+    <%= f.text_field :alternate_contact_number, :placeholder => "Type Employees Altername Contact Number" %>
+  </div><br />
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

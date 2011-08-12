@@ -1,0 +1,37 @@
+<fieldset>
+<table>
+ <legend><b> Education Details :</b></legend>
+
+  <%= f.fields_for :educations do |edu| %>
+
+  <tr>
+    <td><%= edu.label :'Education', "Education" %><br />
+    <select name="education[education]">
+       <option>SSC</option>
+       <option>HSC</option>
+       <option>B.tech/B.Sc.IT./BSc.Computer Science/B.Sc.</option>
+       <option>M.tech/M.Sc.IT./M.Sc.Computer Science/M.Sc.</option>
+       <option>Phd</option>
+    </select>
+    </td>
+
+    <td><%= edu.label :'Status' %><br />
+    <select name="education[marks_class]">
+       <option>First Class</option>
+       <option>Second Class</option>
+       <option>Pass Class</option>
+    </select></td>
+
+    <td><%= edu.label :'Year Of Passing' %><br />
+    <%= edu.text_field :year, :rows => 3 %></td>
+
+    <%# f.check_box :_destroy %>
+    <%# f.label :_destroy, "Remove Salary" %>
+    <td><%= link_to_remove_fields "remove", f %></td>
+  </tr>
+</div>
+  <% end %>
+
+</table>
+</fieldset>
+

@@ -1,0 +1,37 @@
+<%= form_for(@department) do |f| %>
+  <% if @department.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
+
+      <ul>
+      <% @department.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :dept_id, :value=>@dept_number %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :placeholder => "Enter Name Of the Department" %>
+  </div>
+<% if Designation.name %>
+  <div class="field">
+    <%= f.label :"Manager Name" %><br />
+    <%= f.text_field :manager, :placeholder => "Manager Of the Department" %>
+  </div>
+<% else %>
+ <b> Create Designation first Before Creating Department <%= link_to "Here", new_designation_path %></b>
+<% end %>
+  <div class="field">
+    <%= f.label :detail %><br />
+    <%= f.text_area :detail, :size=>"70x5", :placeholder => "little brief on the department...." %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

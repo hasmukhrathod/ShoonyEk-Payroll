@@ -1,0 +1,34 @@
+
+<fieldset>
+<table>
+ <legend><b> Work Experience Details :</b></legend>
+  <%= f.fields_for :resumes do |resume| %>
+
+  <tr>
+    <td><%= resume.label :'Skill', "Skill" %><br />
+    <%= resume.text_field :skill, :rows => 3 %></td>
+
+    <td><%= resume.label :'Work_Experience' %><br />
+    <%= resume.text_field :work_experience, :rows => 3 %></td>
+  </tr>
+  <tr>
+    <td><%= resume.label :'Last Company Name' %><br />
+    <%= resume.text_field :last_company_working_name, :rows => 3 %></td>
+</tr><tr>
+    <td><%= resume.label :'Worked From date' %><br />
+    <%= resume.date_select :working_from, :rows => 3 %></td>
+
+    <td><%= resume.label :'Worked Till date' %><br />
+    <%= resume.date_select :working_till, :rows => 3 %></td>
+
+    <%# f.check_box :_destroy %>
+    <%# f.label :_destroy, "Remove Salary" %>
+    <td><%= link_to_remove_fields "remove", f %></td>
+  </tr>
+</table>
+</legend>
+</fieldset>
+<% end %>
+
+
+

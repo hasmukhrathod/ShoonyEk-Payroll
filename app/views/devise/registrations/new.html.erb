@@ -1,0 +1,24 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p><%= f.label :email %><br />
+  <%= f.email_field :email %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password %></p>
+
+  <p><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></p>
+
+  <div class="form_row">
+      <div class="form_label"><%= f.label :role_id, "User Type" %></div>
+      <div class="form_field"><%= f.collection_select :role_id, Role.all, :id, :name %></div>
+  </div>
+
+
+  <p><%= f.submit "Sign up" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  employee_master_id: 1
+  street_1: MyString
+  street_2: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString
+  home_telephone: MyString
+  mobile: MyString
+  work_telephone: MyString
+  work_email: MyString
+  other_email: MyString
+
+two:
+  employee_master_id: 1
+  street_1: MyString
+  street_2: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString
+  home_telephone: MyString
+  mobile: MyString
+  work_telephone: MyString
+  work_email: MyString
+  other_email: MyString

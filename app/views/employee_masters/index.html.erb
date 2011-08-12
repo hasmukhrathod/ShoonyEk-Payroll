@@ -1,0 +1,30 @@
+<h1>Listing employee_masters</h1>
+
+<table id="hor-minimalist-b" summary="Employee Pay Sheet">
+<thead>
+  <tr>
+    <th>Emp</th>
+    <th>Full name</th>
+    <th>Designation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<% @employee_masters.each do |employee_master| %>
+<tbody>
+  <tr>
+    <td><%= employee_master.emp_id %></td>
+    <td><%= employee_master.emp_name %></td>
+    <td><%= employee_master.designation.name %></td>
+    <td><%= link_to 'Show', employee_master %></td>
+    <td><%= link_to 'Edit', edit_employee_master_path(employee_master) %></td>
+    <td><%= link_to 'Destroy', employee_master, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+</tbody>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Employee master', new_employee_master_path %>

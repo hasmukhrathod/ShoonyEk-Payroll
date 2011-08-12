@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ssc_marks: 1.5
+  hsc_marks: 1.5
+  graduation_marks: 1.5
+  post_graduation_marks: 1.5
+
+two:
+  ssc_marks: 1.5
+  hsc_marks: 1.5
+  graduation_marks: 1.5
+  post_graduation_marks: 1.5

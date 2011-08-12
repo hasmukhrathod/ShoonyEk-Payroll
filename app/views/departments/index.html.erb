@@ -1,0 +1,29 @@
+<h1>Listing departments</h1>
+
+<table id="hor-minimalist-b" summary="Employee Pay Sheet">
+<thead>
+  <tr>
+    <th>Dept</th>
+    <th>Name</th>
+    <th>Manager Name</th>
+    <th>No_Of_Employees</th>
+  </tr>
+</thead>
+<% @departments.each do |department| %>
+<body>
+  <tr>
+    <td><%= department.dept_id %></td>
+    <td><%= department.name %></td>
+    <td><%= department.manager %></td>
+    <td><%= department.employee_masters.count %></td>
+    <td><%= link_to 'Show', department %></td>
+    <td><%= link_to 'Edit', edit_department_path(department) %></td>
+    <td><%= link_to 'Destroy', department, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+</body>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Department', new_department_path %>

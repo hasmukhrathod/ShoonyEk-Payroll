@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  employee_master_id: 1
+  leave_taken_on_date: 2011-08-02
+  leave_till_date: 2011-08-02
+  description: MyText
+
+two:
+  employee_master_id: 1
+  leave_taken_on_date: 2011-08-02
+  leave_till_date: 2011-08-02
+  description: MyText

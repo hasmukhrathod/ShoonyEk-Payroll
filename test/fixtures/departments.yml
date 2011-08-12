@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dept_id: MyString
+  name: MyString
+  detail: MyText
+  designation_id: 1
+
+two:
+  dept_id: MyString
+  name: MyString
+  detail: MyText
+  designation_id: 1

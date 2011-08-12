@@ -1,0 +1,28 @@
+<%= form_for @designation do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :'Designation_Name' %><br />
+    <%= f.text_field :name, :placeholder => "Enter Designation Name" %>
+
+  </p>
+  <%= f.fields_for :salaries do |salary| %>
+<div class="fields">
+  <p>
+    <%= salary.label :'Basic Salary', "Salary" %><br />
+    <%= salary.text_field :basic, :rows => 3, :placeholder => "Basic Salary" %><br />
+    <%= salary.label :'House Rent Allowence' %><br />
+    <%= salary.text_field :h_r_a, :rows => 3, :placeholder => "enter the house rent allowence amount" %><br />
+    <%= salary.label :'L T A' %><br />
+    <%= salary.text_field :l_t_a, :rows => 3, :placeholder => "Enter LTA" %><br />
+    <%= salary.label :'Provident Fund' %><br />
+    <%= salary.text_field :p_f, :rows => 3, :placeholder => "Prident Fund of this month" %><br />
+    <%= salary.label :'Bonus' %><br />
+    <%= salary.text_field :bonus, :rows => 3, :placeholder => "This month's Bonus Amount" %><br />
+
+    <%# f.check_box :_destroy %>
+    <%# f.label :_destroy, "Remove Salary" %>
+  </p>
+</div>
+  <% end %>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

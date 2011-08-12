@@ -1,0 +1,29 @@
+<fieldset>
+<table>
+ <legend><b> Immigration Details :</b></legend>
+
+  <%= f.fields_for :emp_immigrations do |contact| %>
+
+  <tr>
+  <td><%= contact.label :'Passport Number' %><br />
+      <%= contact.text_field :passport_no, :rows => 3 %></td>
+  </tr>
+<tr>
+  <td><%= contact.label :'Passport Issue Date' %><br />
+      <%= contact.date_select :issue_date, :rows => 3 %></td>
+</tr><tr>
+  <td><%= contact.label :'Passport Expires On' %><br />
+      <%= contact.date_select :expiry_date, :rows => 3 %></td>
+</tr>
+<tr>
+  <td><%= contact.label :'Citizenship' %><br />
+      <%= contact.text_field :citizenship, :rows => 3 %></td>
+
+    <td><%= link_to_remove_fields "remove", f %></td>
+  </tr>
+</div>
+  <% end %>
+
+</table>
+</fieldset>
+

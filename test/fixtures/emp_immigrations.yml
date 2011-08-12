@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  passport_no: MyString
+  issued_date: 2011-08-03
+  expiry_date: 2011-08-03
+  citizenship: MyString
+
+two:
+  passport_no: MyString
+  issued_date: 2011-08-03
+  expiry_date: 2011-08-03
+  citizenship: MyString

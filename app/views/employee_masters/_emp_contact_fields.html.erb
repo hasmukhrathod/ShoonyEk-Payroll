@@ -1,0 +1,47 @@
+<fieldset>
+<table>
+ <legend><b> contactcation Details :</b></legend>
+
+  <%= f.fields_for :emp_contacts do |contact| %>
+
+  <tr>
+  <td><%= contact.label :'Address 1', "address1" %><br />
+      <%= contact.text_field :street_1, :rows => 3 %></td>
+
+  <td><%= contact.label :'Address 2', "address2" %><br />
+      <%= contact.text_field :street_2, :rows => 3 %></td>
+
+  <td><%= contact.label :'City / Town' %><br />
+      <%= contact.text_field :city, :rows => 3 %></td>
+</tr><tr>
+  <td><%= contact.label :'State / Provinence' %><br />
+      <%= contact.text_field :state, :rows => 3 %></td>
+
+  <td><%= contact.label :'Zip Code' %><br />
+      <%= contact.text_field :zip_code, :rows => 3 %></td>
+
+  <td><%= contact.label :'Home Telephone Number' %><br />
+      <%= contact.text_field :home_telephone, :rows => 3 %></td>
+</tr><tr>
+  <td><%= contact.label :'Mobile Number' %><br />
+      <%= contact.text_field :mobile, :rows => 3 %></td>
+
+  <td><%= contact.label :'Work Telephone Number' %><br />
+      <%= contact.text_field :work_telephone, :rows => 3 %></td>
+
+  <td><%= contact.label :'Work Email' %><br />
+      <%= contact.text_field :work_email, :rows => 3 %></td>
+</tr><tr>
+  <td><%= contact.label :'Other Email' %><br />
+      <%= contact.text_field :other_email, :rows => 3 %></td>
+
+    <%# f.check_box :_destroy %>
+    <%# f.label :_destroy, "Remove Salary" %>
+    <td><%= link_to_remove_fields "remove", f %></td>
+  </tr>
+</div>
+  <% end %>
+
+</table>
+</fieldset>
+

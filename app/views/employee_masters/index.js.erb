@@ -1,0 +1,5 @@
+<%= auto_complete_result @employee_masters, :emp_first_name %>
+
+ <%= f.autocomplete_field :employee_master_id,  
+                              autocomplete_employee_master_emp_first_name_leave_managements_path,
+                             :id_element => "#id_element_placeholder", :size=> "20" %>

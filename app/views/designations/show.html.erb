@@ -1,0 +1,41 @@
+<% title "Designation" %>
+
+<p>
+  <strong>Position:</strong>
+  <%= @designation.name %>
+</p>
+
+
+<h3> Salary Structure </h3>
+<table border>
+ 
+
+<% for salary in @designation.salaries %>
+
+  <tr>
+    <th>Basic </th>
+    <th>House Rent Allowence   </th>
+    <th>LTA  </th>
+    <th>Provident Fund    </th>
+    <th>Bonus </th>
+    <th> Total Salary :</th>
+</tr>
+<tr>
+      <td><%= salary.basic %></td>
+      <td><%= salary.h_r_a %></td>
+      <td><%= salary.l_t_a %></td>
+      <td><%= salary.p_f %></td>
+      <td><%= salary.bonus %></td>
+<% end %>
+<% total = Salary.find(params[:id]) %>
+  <td><%= ((total.basic + total.h_r_a + total.l_t_a + total.p_f + total.bonus).to_f) %></td>
+
+
+</table>
+
+</p>
+  <%= link_to "Edit", edit_designation_path(@designation) %> |
+  <%= link_to "Destroy", @designation, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", designations_path %>
+</p>
+
