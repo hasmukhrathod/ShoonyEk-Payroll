@@ -1,5 +1,9 @@
 Surveyor::Application.routes.draw do
 
+  resources :forms
+
+  resources :form_categories
+
   resources :esi_masters do
 	  collection do
 	    post :update_attribute_on_the_spot

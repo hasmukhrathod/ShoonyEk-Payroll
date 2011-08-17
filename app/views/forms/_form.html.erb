@@ -1,0 +1,53 @@
+<%= form_for(@form) do |f| %>
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this form from being saved:</h2>
+
+      <ul>
+      <% @form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :'Form Category' %><br />
+    <%= f.collection_select :form_category_id, FormCategory.find(:all), :id, :name  %>
+  </div>
+  <div class="field">
+    <%= f.label :book_no %><br />
+    <%= f.text_field :book_no %>
+  </div>
+  <div class="field">
+    <%= f.label :stamp_no %><br />
+    <%= f.text_field :stamp_no %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_code %><br />
+    <%= f.text_field :employee_code %>
+  </div>
+  <div class="field">
+    <%= f.label :branch_id %><br />
+    <%= f.text_field :branch_id %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_mster_id %><br />
+    <%= f.text_field :employee_mster_id %>
+  </div>
+  <div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_area :remarks %>
+  </div>
+  <div class="field">
+    <%= f.label :madical_officer %><br />
+    <%= f.text_field :madical_officer %>
+  </div>
+  <div class="field">
+    <%= f.label :industry_code %><br />
+    <%= f.text_field :industry_code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

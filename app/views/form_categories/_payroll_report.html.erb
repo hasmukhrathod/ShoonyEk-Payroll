@@ -1,0 +1,36 @@
+<% @form_category.forms.each do |f| %>
+ <p><%= f.book_no %></p>
+ <p><%= f.stamp_no %></p>
+ <p><%= f.employee_code %></p>
+ <p><%= f.branch_id %></p>
+ <p><%= f.employee_mster_id %></p>
+ <p><%= f.remarks %></p>
+ <p><%= f.madical_officer %></p>
+<% end %>
+
+
+<% Salary.find(:all).inspect %>
+
+<% Salary.find(:all).each do |salary| %>
+
+<table border>
+  <tr>
+    <th>Basic </th>
+    <th>House Rent Allowence   </th>
+    <th>LTA  </th>
+    <th>Provident Fund    </th>
+    <th>Bonus </th>
+    <th> Total Salary :</th>
+</tr>
+<tr>
+      <td><%= salary.basic %></td>
+      <td><%= salary.h_r_a %></td>
+      <td><%= salary.l_t_a %></td>
+      <td><%= salary.p_f %></td>
+      <td><%= salary.bonus %></td>
+</tr>
+<% end %>
+
+
+
+</table>

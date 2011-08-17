@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @form_category.name %>
+</p>
+
+<%= render :partial => "payroll_report" %> 
+
+<p>
+<%= link_to 'Edit', edit_form_category_path(@form_category) %> |
+<%= link_to 'Back', form_categories_path %></p>

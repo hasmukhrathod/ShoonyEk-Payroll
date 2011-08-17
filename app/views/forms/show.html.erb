@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Book no:</b>
+  <%= @form.book_no %>
+</p>
+
+<p>
+  <b>Stamp no:</b>
+  <%= @form.stamp_no %>
+</p>
+
+<p>
+  <b>Employee code:</b>
+  <%= @form.employee_code %>
+</p>
+
+<p>
+  <b>Branch:</b>
+  <%= @form.branch_id %>
+</p>
+
+<p>
+  <b>Employee mster:</b>
+  <%= @form.employee_mster_id %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @form.remarks %>
+</p>
+
+<p>
+  <b>Madical officer:</b>
+  <%= @form.madical_officer %>
+</p>
+
+<p>
+  <b>Industry code:</b>
+  <%= @form.industry_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_form_path(@form) %> |
+<%= link_to 'Back', forms_path %>
