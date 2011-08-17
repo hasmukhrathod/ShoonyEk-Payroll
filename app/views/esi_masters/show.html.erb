@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Book no:</b>
+  <%= @esi_master.book_no %>
+</p>
+
+<p>
+  <b>Stamp no:</b>
+  <%= @esi_master.stamp_no %>
+</p>
+
+<p>
+  <b>Employer code:</b>
+  <%= @esi_master.employer_code %>
+</p>
+
+<p>
+  <b>Branch:</b>
+  <%= @esi_master.branch_id %>
+</p>
+
+<p>
+  <b>Employee master:</b>
+  <%= @esi_master.employee_master_id %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @esi_master.remarks %>
+</p>
+
+<p>
+  <b>Medical officer:</b>
+  <%= @esi_master.medical_officer %>
+</p>
+
+<p>
+  <b>Industry code:</b>
+  <%= @esi_master.industry_code %>
+</p>
+
+
+<%= link_to 'Edit', edit_esi_master_path(@esi_master) %> |
+<%= link_to 'Back', esi_masters_path %>

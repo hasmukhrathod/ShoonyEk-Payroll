@@ -61,6 +61,7 @@ Tabulous.setup do |config|
       [    :designations_tab    ,    'Designations'    ,  designations_path      ,    true        ,    true        ],
       [    :leaves_tab          ,    'Leave Management',  leave_managements_path ,    true        ,    true        ],
       [    :departments_tab     ,    'Department'      ,  departments_path       ,    true        ,    true        ],
+      [    :esi_tab             ,    'ESI'             ,  esi_masters_path       ,    true        ,    true        ],
       #------------------------------------------------------------------------------------------------------------#
       #    TAB NAME             |    DISPLAY TEXT      |    PATH                 |    VISIBLE?    |    ENABLED?    #
       #------------------------------------------------------------------------------------------------------------#
@@ -90,6 +91,7 @@ Tabulous.setup do |config|
       [    :designations       ,    :all_actions    ,    :designations_tab     ],
       [    :leave_managements  ,    :all_actions    ,    :leaves_tab           ],
       [    :departments        ,    :all_actions    ,    :departments_tab      ],
+      [    :esi_masters        ,    :all_actions    ,    :esi_tab              ],
       #------------------------------------------------------------------------#
       #    CONTROLLER       |    ACTION          |    TAB                      #
       #------------------------------------------------------------------------#

@@ -1,0 +1,8 @@
+<center><h2>ESI Form</h2></center>
+<center><h2>FIRST/INTERMEDIATE/FINAL CERTIFICATE</h2></center>
+<center><h2>EMPLOYEES’ STATE INSURANCE CORPORATION</h2></center>
+<center><h2>(Regulations 57, 58, 59)</h2></center>
+<% @esi_form7.each do |form7| %>
+<left><h3>Book Number : <%= on_the_spot_edit form7.book_no, :book_no %></h3></left>
+<left><h3>S. No : <%= on_the_spot_edit form7.stamp_no, :stamp_no %> &nbsp;&nbsp;&nbsp; Stamp of Dispensary</h3></left>
+<%end%>

@@ -11,3 +11,5 @@ gem 'nested_set'
 gem "rake", "~> 0.9.2"
 gem "dynamic_form"
 gem 'event-calendar', :require => 'event_calendar'
+gem 'on_the_spot'
+gem 'jquery-rails'

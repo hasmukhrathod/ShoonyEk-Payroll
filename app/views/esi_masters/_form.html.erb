@@ -1,0 +1,43 @@
+<%= form_for(@esi_master) do |f| %>
+  <% if @esi_master.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@esi_master.errors.count, "error") %> prohibited this esi_master from being saved:</h2>
+
+      <ul>
+      <% @esi_master.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :book_no %><br />
+    <%= f.text_field :book_no %>
+  </div>
+  <div class="field">
+    <%= f.label :stamp_no %><br />
+    <%= f.text_field :stamp_no %>
+  </div>
+  <div class="field">
+    <%= f.label :employer_code %><br />
+    <%= f.text_field :employer_code %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_area :remarks %>
+  </div>
+  <div class="field">
+    <%= f.label :medical_officer %><br />
+    <%= f.text_field :medical_officer %>
+  </div>
+  <div class="field">
+    <%= f.label :industry_code %><br />
+    <%= f.text_field :industry_code %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

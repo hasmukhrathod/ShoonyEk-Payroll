@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  book_no: 1
+  stamp_no: 1
+  employer_code: 1
+  branch_id: 1
+  employee_master_id: 1
+  remarks: MyText
+  medical_officer: MyString
+  industry_code: MyString
+
+two:
+  book_no: 1
+  stamp_no: 1
+  employer_code: 1
+  branch_id: 1
+  employee_master_id: 1
+  remarks: MyText
+  medical_officer: MyString
+  industry_code: MyString

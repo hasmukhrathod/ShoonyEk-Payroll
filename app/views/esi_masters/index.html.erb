@@ -1,0 +1,37 @@
+<h1>Listing esi_masters</h1>
+
+<table>
+  <tr>
+    <th>Book no</th>
+    <th>Stamp no</th>
+    <th>Employer code</th>
+    <th>Branch</th>
+    <th>Employee master</th>
+    <th>Remarks</th>
+    <th>Medical officer</th>
+    <th>Industry code</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @esi_masters.each do |esi_master| %>
+  <tr>
+    <td><%= esi_master.book_no %></td>
+    <td><%= esi_master.stamp_no %></td>
+    <td><%= esi_master.employer_code %></td>
+    <td><%= esi_master.branch_id %></td>
+    <td><%= esi_master.employee_master_id %></td>
+    <td><%= esi_master.remarks %></td>
+    <td><%= esi_master.medical_officer %></td>
+    <td><%= esi_master.industry_code %></td>
+    <td><%= link_to 'Show', esi_master %></td>
+    <td><%= link_to 'Edit', edit_esi_master_path(esi_master) %></td>
+    <td><%= link_to 'Destroy', esi_master, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Esi master', new_esi_master_path %>

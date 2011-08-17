@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812105010) do
+ActiveRecord::Schema.define(:version => 20110815120617) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "question_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "departments", :force => true do |t|
     t.string   "dept_id"
@@ -84,6 +91,19 @@ ActiveRecord::Schema.define(:version => 20110812105010) do
     t.integer  "parent_id"
   end
 
+  create_table "esi_masters", :force => true do |t|
+    t.string   "book_no"
+    t.string   "stamp_no"
+    t.integer  "employer_code"
+    t.integer  "branch_id"
+    t.integer  "employee_master_id"
+    t.text     "remarks"
+    t.string   "medical_officer"
+    t.string   "industry_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", :force => true do |t|
     t.integer  "employee_master_id"
     t.string   "name"
@@ -105,6 +125,13 @@ ActiveRecord::Schema.define(:version => 20110812105010) do
     t.string   "leave_type"
     t.string   "alternate_contact_number"
     t.string   "status"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "survey_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "resumes", :force => true do |t|
@@ -131,6 +158,12 @@ ActiveRecord::Schema.define(:version => 20110812105010) do
     t.float    "h_r_a"
     t.float    "p_f"
     t.float    "bonus"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surveys", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
