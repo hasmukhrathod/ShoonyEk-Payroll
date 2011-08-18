@@ -5,7 +5,37 @@
   <%= @form_category.name %>
 </p>
 
-<%= render :partial => "payroll_report" %> 
+</p>
+<% if @form_category.id==1 %>
+  <%= render :partial => "payroll_report" %> 
+<% end %>
+</p>
+
+
+</p>
+<% if @form_category.id==2 %>
+  <%= render :partial => "department_report" %> 
+<% end %>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p>
 <%= link_to 'Edit', edit_form_category_path(@form_category) %> |

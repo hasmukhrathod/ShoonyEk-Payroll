@@ -82,4 +82,13 @@ class DepartmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+def validate
+    if params[:field].blank? || params[:value].blank?
+      render :nothing => true
+    else
+       @valid = Department.validate_field(params[:field], params[:value])
+       render :json => @valid
+    end
+ end
 end

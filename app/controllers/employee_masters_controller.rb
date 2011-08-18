@@ -15,7 +15,8 @@ before_filter :authenticate_user!
   # GET /employee_masters/1.xml
   def show
     @employee_master = EmployeeMaster.find(params[:id])
-
+    @emp = EmployeeMaster.last.emp_id
+     logger.info "@@fshof"+@emp.inspect
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @employee_master }
@@ -25,12 +26,17 @@ before_filter :authenticate_user!
   # GET /employee_masters/new
   # GET /employee_masters/new.xml
   def new
+    @emp = EmployeeMaster.all
+    @empl  = @emp.last.emp_id
+    @employee_master_last = @empl+1
     @employee_master = EmployeeMaster.new
-    @emp_code = EmployeeMaster.serial_number
+    @employee_master.emp_id = @employee_master_last 
+logger.info "Employee ki daetail :=>>"+@employee_master_last.inspect
+    #@emp_code = EmployeeMaster.serial_number
     #@random_number = rand(2**256).to_s(9).ljust(8,'A')[0..5]
     #@purchase_order.order_no = @random_number
     #@array = (1..2000).map{ rand(max_rand_size) }.uniq
-    @employee_master.emp_id = @emp_code
+    #@employee_master.emp_id = @emp_code
     @resume = @employee_master.resumes.build
     @education = @employee_master.educations.build
     @emp_contact = @employee_master.emp_contacts.build
@@ -48,11 +54,10 @@ before_filter :authenticate_user!
 
   # POST /employee_masters
   # POST /employee_masters.xml
-  def create
-    
+  def create    
     @employee_master = EmployeeMaster.new(params[:employee_master])
-    @emp_code = EmployeeMaster.serial_number
-    @employee_master.emp_id = @emp_code + "1"
+    #@employee_master.emp_id = @employee_master_last 
+
     respond_to do |format|
       if @employee_master.save
         format.html { redirect_to(@employee_master, :notice => 'Employee master was successfully created.') }

@@ -10,18 +10,19 @@ Surveyor::Application.routes.draw do
 	  end
 	end
 
-  resources :departments
+  resources :departments, :member => {:validate => :post}
   resources :events
   resources :roles
   resources :employee_masters
   resources :designations
+
   get 'esi/form7'
   
-resources :esi do
-	  collection do
-	    post :update_attribute_on_the_spot
-	  end
-	end
+  resources :esi do
+    collection do
+      post :update_attribute_on_the_spot
+    end
+  end
 
   devise_for :users
 

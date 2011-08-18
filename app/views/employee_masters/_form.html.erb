@@ -16,8 +16,10 @@
 <table>
  <legend><b>Personal Information:</b></legend>
 <tr>
-    <td><%= f.label :'Employee_Number' %><br />
-    <%= f.text_field :emp_id, :placeholder => "enter the emp code" %></td>
+    <td>
+    <%= f.label :'Employee_Number' %><br />
+    <%= f.text_field :emp_id, :value=> @employee_master_last %>
+    </td>
 
     <td><%= f.label :designation_id %><br />
     <%= f.collection_select :designation_id, Designation.find(:all),:id, :name %></td>
@@ -109,7 +111,7 @@
   <%= f.fields_for :educations do |edu| %>
 
   <tr>
-    <td><%= edu.label :'Education', "Education" %><br />
+    <td><%= edu.label :'Education'%><br />
     <select name="education[emp_education]">
        <option>SSC</option>
        <option>HSC</option>

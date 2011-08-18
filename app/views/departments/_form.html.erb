@@ -1,15 +1,9 @@
-<%= form_for(@department) do |f| %>
-  <% if @department.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
+<% content_for :scripts do %>
+        <%= javascript_include_tag 'new_department' %>
+<% end %>
 
-      <ul>
-      <% @department.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+<%= form_for(@department) do |f| %>
 
   <div class="field">
     <%= f.hidden_field :dept_id, :value=>@dept_number %>

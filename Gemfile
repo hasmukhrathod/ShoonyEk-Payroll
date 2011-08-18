@@ -13,3 +13,6 @@ gem "dynamic_form"
 gem 'event-calendar', :require => 'event_calendar'
 gem 'on_the_spot'
 gem 'jquery-rails'
+gem 'bcrypt-ruby', :require => 'bcrypt'  
+gem 'jquery-rails'  
+gem 'client_side_validations'  
